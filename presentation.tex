@@ -1,0 +1,179 @@
+\documentclass[xcolor=table]{beamer}
+
+% Add/remove packages you need/don't need
+\usepackage{setspace, graphics, hyperref, bm, tabularx, enumerate, booktabs, caption, verbatim}
+
+% UPenn specific theme
+\usetheme{Penn}
+
+% General settings
+\setbeamercovered{transparent}
+\setbeamertemplate{enumerate item}[default]
+\setbeamertemplate{section in toc}[default]
+\setbeamertemplate{subsection in toc}[default]
+\setbeamertemplate{navigation symbols}{}
+
+\AtBeginSection[] 
+{ 
+\begin{frame}<beamer>{Overview} 
+\tableofcontents[currentsection] 
+\end{frame} 
+} 
+
+%% UPDATE with your details. I use a different author section.. experiment
+%% Set some presentation information
+\title[Beamer Themes]{\textbf{Creating a Beamer Template}}
+
+\author[F Last]{\textbf{First Last} \\ 
+	{\small Department of Something or Other} \\
+	{\small University of Pennsylvania} \\
+	 \textbf{uname@upenn.edu }}
+
+\institute[uname@upenn.edu]{}
+
+\date[31 December 1979]{Security-SIG \\ 31 December 1979 }
+
+
+%% Begin the presentation document
+%% This is for demonstration purposes only. Take what you like and remove the rest.
+%% You may notice there are a few ways of doing the same thing, e.g. frametitles
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+% Don't include the titlepage in the total slide count.
+\setcounter{framenumber}{0}
+
+% Table of Contents slide
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\begin{frame}
+\frametitle{Disclaimers}
+\begin{enumerate}
+\item<1-> Title of this seminar should have been Creating a Beamer Theme
+\medskip
+\item<2-> I assume you know something about \LaTeX~and Beamer
+\medskip
+\item<3-> This will all appear to be a bit hacky\ldots
+\end{enumerate}
+\end{frame}
+
+\section{Themes}
+\begin{frame}
+\frametitle{Themes}
+\begin{itemize}
+\item The Penn theme I ``created'' is a \textcolor{quakerblue}{global} or \textcolor{quakerblue}{presentation} theme 
+\smallskip
+\item Mostly, it specifies the \textcolor{quakerblue}{outer} and \textcolor{quakerblue}{inner} themes, calls out the \textcolor{quakerblue}{color} theme, and structures the title page \\
+\begin{itemize}
+\item \textcolor{quakerblue}{Outer}: Dictates the style of head and foot lines, sidebars
+\item \textcolor{quakerblue}{Inner}: Dictates the style of elements inside the frame, \\ such as environments (itemize, enumerate, theorem)
+\item \textcolor{quakerblue}{Color}: Dictates the color scheme for all elements
+\item \textcolor{quakerblue}{Font}: Use the default (never use serif fonts in presentations)
+\end{itemize}
+\smallskip
+\item These options are contained in \texttt{.sty} files
+\smallskip
+\item \href{http://www.upenn.edu/webservices/styleguide/logo.html}{\alert{Penn logos are available for download}}
+\end{itemize}
+\end{frame}
+
+
+\definecolor{dodgerblue3}{RGB}{24,116,205}
+
+\begin{frame}[fragile]
+\frametitle{Color: Going both ways}
+First in R\ldots
+\begin{small}
+\begin{verbatim}
+colors()[131]
+[1] "dodgerblue3"
+
+col2rgb("dodgerblue3")
+      [,1]
+red     24
+green  116
+blue   205
+\end{verbatim}
+\end{small}
+\ldots then in Beamer
+\begin{small}
+\begin{verbatim}
+\definecolor{dodgerblue3}{RGB}{24, 116, 205}
+\textcolor{dodgerblue3}{This is dodgerblue3!}
+\end{verbatim}
+\end{small}
+\textcolor{dodgerblue3}{This is dodgerblue3!}
+\end{frame}
+
+\section{Beamer Resources}
+\begin{frame}
+\frametitle{Resources}
+\begin{itemize}
+\item \href{http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf}{\alert{Beamer appearance cheat sheet}}
+\item \href{http://texdoc.net/texmf-dist/doc/latex/beamer/doc/beameruserguide.pdf}{\alert{User's guide to the Beamer class}}
+\end{itemize}
+\end{frame}
+
+%%%%
+%% Adding a few slides to demonstrate a slightly different approach.
+
+%% A Brief History
+\section{A Brief History} %% sections are required for the purpose of a TOC
+\begin{frame}{A Brief History}
+A Linux distribution with a focus on penetration testing tasks.
+\medskip
+\begin{itemize}
+\item Previously known as BackTrack
+\item BackTrack - Whoppix, IWHAX, and Auditor
+\item Kali 1.0 released March 12, 2013
+\item Kali 2.0 release August 11, 2015
+\end{itemize}
+\end{frame}
+
+\section{Features}
+
+%% Features
+\begin{frame}{Features}
+\medskip
+\begin{itemize}
+\item Based on Debian Linux distribution
+\item 100's of PenTesting tools
+\item Vast wireless card support
+\item Custom kernel patched for packet injection
+\item All packages GPG signed by developers
+\item Highly customizable 
+\item Supports ARM-based systems
+\end{itemize}
+\end{frame}
+
+%%%%%
+
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+\begin{frame}[fragile]
+\frametitle{Frame numbers}
+\begin{itemize}
+\item Do not count the title page (or table of contents) 
+\begin{verbatim}
+\frame[plain]{\titlepage}
+\setcounter{framenumber}{0}
+\end{verbatim}
+\smallskip
+\item Set the total number of frames prior to any appendices
+\begin{verbatim}
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+% Supplementary frames
+\setcounter{framenumber}{\value{finalframe}}
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\setcounter{framenumber}{\value{finalframe}}
+
+\end{document}

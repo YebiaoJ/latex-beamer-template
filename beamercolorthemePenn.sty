@@ -1,0 +1,38 @@
+% Copyright 2007 by Jianfeng Lu <jianfeng.lu@gmail.com>
+% Edited by Benjamin French <benjamin.c.french@gmail.com>
+%
+% CMYK colors for Penn are Blue={100,65,0,30}, Red={0,100,65,34}
+
+\mode<presentation>
+
+\xdefinecolor{quakerred}{cmyk}{0, 1, 0.65, 0.34}
+\xdefinecolor{quakerblue}{cmyk}{1, 0.65, 0, 0.3}
+
+\setbeamercolor*{normal text}{fg=black,bg=white}
+\setbeamercolor*{alerted text}{fg=quakerred}
+\setbeamercolor*{example text}{fg=black}
+
+% Choose either white or colored title block
+
+\setbeamercolor*{structure}{fg=quakerblue,bg=quakerblue!20}
+%\setbeamercolor*{structure}{fg=quakerblue,bg=white}
+
+\setbeamercolor{palette primary}{fg=white,bg=quakerred}
+\setbeamercolor{palette secondary}{fg=quakerblue,bg=quakerblue!30}
+\setbeamercolor{palette tertiary}{fg=white,bg=quakerblue}
+\setbeamercolor{palette quaternary}{fg=white,bg=quakerblue!60}
+
+\setbeamercolor*{block body}{parent=normal text, use=block title, bg=quakerblue!10!white}
+\setbeamercolor*{block body alerted}{}
+\setbeamercolor*{block body example}{}
+\setbeamercolor*{block title}{parent=structure}
+\setbeamercolor*{block title alerted}{parent=alerted text}
+\setbeamercolor*{block title example}{parent=example text}
+
+\setbeamercolor*{titlelike}{parent=structure}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\mode
+<all>
